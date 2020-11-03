@@ -8,21 +8,23 @@
 namespace pipert {
 
 template <class T>
-class MeasurementProfile {
-
-	public:
+class MeasurementProfile : MeasurementProfileBase<class T> {
+ public:
   const char* MesurementProfileName;
-  const char* ChannelName; 
+  const char* ChannelName;
   Timer::Time packetTimeStamp;
   Timer::Time AcquireTime;
   Timer::Time PushTime;
   Timer::Time PopTime;
   Timer::Time ExecutionStartTime;
   Timer::Time DroppingTime;
-  std::vector<char*> attributesToBeRecorded; 
+  int* threadID;
 
+  //must 
 
-
+  
+	 public
+  MeasurementProfile() : MeasurementProfileBase(false) {}
 };
 }  // namespace pipert
 #endif
