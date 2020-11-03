@@ -22,6 +22,7 @@ class Packet : public PacketBase {
  private:
   T data_;  // the data stored in the package
   MeasurementProfile<T> measurementProfile;
+  UserMeasurementProfile<T> userMeasurementProfile;
 };
 
 template <class T> template <class... Args>
