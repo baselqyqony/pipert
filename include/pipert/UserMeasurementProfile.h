@@ -5,9 +5,10 @@
 
 #include "pipert/PacketBase.h"
 #include "pipert/Timer.h"
+#include "pipert/MeasurementProfileBase.h"
 namespace pipert {
 
-template <class T>
+
 class UserMeasurementProfile : MesurementProfileBase {
   using Callback = std::function<void(PacketToProcess<T>,std::map<std::string ,double> & result)>;
  public:
@@ -24,7 +25,7 @@ class UserMeasurementProfile : MesurementProfileBase {
 
   MesurementProfileBase(Callback measurementProcessingFunction)
       : MeasurementProfileBase(true) {
-    MeasurementProcessingFunction = measurementProcessingFunction;
+    processState = measurementProcessingFunction.NoStatus;
 
   }
 
